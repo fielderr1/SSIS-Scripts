@@ -1,0 +1,18 @@
+        public void Main()
+        {
+            String FilePath = Dts.Variables["User::FolderPath"].Value.ToString() + Dts.Variables["User::FileName"].Value.ToString();
+            if (
+                File.Exists(FilePath))
+            {
+                Dts.Variables["User::FileExistsFlag"].Value = 1;
+                Dts.TaskResult = (int)ScriptResults.Success;
+            }
+
+            else
+            {
+             
+                Dts.TaskResult = (int)ScriptResults.Failure;
+            }
+
+
+        }
